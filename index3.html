@@ -10,7 +10,7 @@
     <meta name="keywords" content="Colorlib Templates">
 
     <!-- Title Page-->
-    <title>Advanced Cryptography</title>
+    <title>Blowfish Cryptography</title>
 
     <!-- Icons font CSS-->
     <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
@@ -35,12 +35,12 @@
         <div class="wrapper wrapper--w680">
             <div class="card card-4">
                 <div class="card-body">
-                    <h2 class="title">Advanced Cryptography</h2>
+                    <h2 class="title">Blowfish Cryptography</h2>
                     <form method="POST">
                         <div class="row row-space">
                             <div class="col-2">
 
-                                <div class="input-group">
+                                <!-- <div class="input-group">
                                     <label class="label">Algorithm</label>
                                     <div class="rs-select2 js-select-simple select--no-search">
                                         <select name="subject">
@@ -53,7 +53,7 @@
                                         </select>
                                         <div class="select-dropdown"></div>
                                     </div>
-                                </div>
+                                </div> -->
 
                                 <div class="input-group">
                                     <label class="label">Your secret message (for encrypt) OR encrypted message (for decrypt)</label>
@@ -76,7 +76,7 @@
                                 
                                 <div class="input-group">
                                     <label class="label">Final Message</label>
-                                    <input class="input--style-5" type="text" name="result">
+                                    <textarea class="input--style-5" type="text" name="result"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -117,7 +117,7 @@
           $('input[name=encrypt]').click(function(event) {
             try {
               var key = $('input[name=password]').val();
-              var text = $('input[name=text]').val();
+              var text = $('textarea[name=text]').val();
     
               var bf = new Blowfish(key);
     
@@ -125,7 +125,7 @@
     
     
               res = bf.base64Encode(res);
-              $('input[name=result]').val(res);
+              $('textarea[name=result]').val(res);
             } catch(ex) {
               if (window.console && console.log) {
                 console.log(ex)
@@ -137,7 +137,7 @@
           $('input[name=decrypt]').click(function() {
             try {
               var key = $('input[name=password]').val();
-              var text = $('input[name=text]').val();
+              var text = $('textarea[name=text]').val();
     
               var bf = new Blowfish(key);
     
@@ -146,7 +146,7 @@
               var res = bf.decrypt(text);
               res = bf.trimZeros(res);
     
-              $('input[name=result]').val(res);
+              $('textarea[name=result]').val(res);
             } catch(ex) {
               if (window.console && console.log) {
                 console.log(ex)
