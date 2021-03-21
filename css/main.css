@@ -170,11 +170,11 @@ h6 {
 }
 
 .bg-gra-01 {
-  background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
+  background: linear-gradient(127deg, #a759d1 0%, #8261ee 91%);
 }
 
 .bg-gra-02 {
-  background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
+  background: linear-gradient(127deg, #a759d1 0%, #8261ee 91%);
 }
 
 /* ==========================================================================
@@ -281,7 +281,7 @@ h6 {
 }
 
 .btn--blue {
-  background: #4272d7;
+  background: #9d5bd9;
 }
 
 .btn--blue:hover {
