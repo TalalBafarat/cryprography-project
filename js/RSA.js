@@ -18,4 +18,3 @@ function encryptRSA(){
 
 
 
-var DecryptionResult = cryptico.decrypt(CipherText, ReciverRSAkey);

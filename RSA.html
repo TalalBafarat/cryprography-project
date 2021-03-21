@@ -38,10 +38,12 @@
       rel="stylesheet"
       media="all"
     />
-
+<!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <!-- Main CSS-->
     <link href="css/main.css" rel="stylesheet" media="all" />
-
+    <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
     <!-- script type="text/javascript" src="Blowfish.js"></script -->
     <script
       type="text/javascript"
@@ -95,26 +97,21 @@
                     <label class="label">Size</label>
                     <input class="input--style-4" type="text" name="Size" id="Size"/>
                   </div>
-                  <div class="col-2">
+                  <div class="col-1">
+                    
                     <div class="input-group">
+                      
                       <center>
-                        <div class="p-t-15">
-                          <input
-                            class="btn btn--radius-2 btn--blue"
-                            onclick="encryptRSA()"
-                            type="submit"
-                            name="encrypt"
-                            value="Encrypt"
-
-                          />
-                          
+                        <div class="p-t-15 mr-4">
+                         
+                          <button type="button" onclick="encryptRSA()" class="btn btn-primary mr-4">Primary</button>
                         </div>
                       </center>
                     </div>
                   </div>
 
                   <div class="input-group">
-                    <label class="label">Final Message</label>
+                    <label class="label i">Final Message</label>
                     <textarea
                       class="input--style-5"
                       type="text"
@@ -122,6 +119,7 @@
                       id="encrypted"
                     ></textarea>
                   </div>
+                  
                 </div>
               </div>
               <div class="row row-space"></div>
@@ -144,54 +142,7 @@
     <script src="js/cryptico.js"></script>
     <script src="js/RSA.js"></script>
 
-    <script type="text/javascript">
-      $(function () {
-        $("input[name=encrypt]").submit(function (event) {
-          event.preventDefault();
-        });
-
-        $("input[name=encrypt]").click(function (event) {
-          try {
-            var key = $("input[name=password]").val();
-            var text = $("textarea[name=text]").val();
-
-            var bf = new Blowfish(key);
-
-            var res = bf.encrypt(text);
-
-            res = bf.base64Encode(res);
-            $("textarea[name=result]").val(res);
-          } catch (ex) {
-            if (window.console && console.log) {
-              console.log(ex);
-            }
-          }
-
-          return false;
-        });
-        $("input[name=decrypt]").click(function () {
-          try {
-            var key = $("input[name=password]").val();
-            var text = $("textarea[name=text]").val();
-
-            var bf = new Blowfish(key);
-
-            text = bf.base64Decode(text);
-
-            var res = bf.decrypt(text);
-            res = bf.trimZeros(res);
-
-            $("textarea[name=result]").val(res);
-          } catch (ex) {
-            if (window.console && console.log) {
-              console.log(ex);
-            }
-          }
-
-          return false;
-        });
-      });
-    </script>
+    
     <script src="js/RSA.js"></script>
   </body>
   <!-- This templates was made by Colorlib (https://colorlib.com) -->
