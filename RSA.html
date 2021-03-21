@@ -78,18 +78,22 @@
 
                   <div class="input-group">
                     <label class="label"
-                      >Your secret message (for encrypt) OR encrypted message
-                      (for decrypt)</label
+                      >Your secret message (for encrypt) </label
                     >
                     <textarea
                       class="input--style-5"
                       type="text"
-                      name="text"
+                      name="mess"
+                      id="mess"
                     ></textarea>
                   </div>
                   <div class="input-group">
-                    <label class="label">Password</label>
-                    <input class="input--style-4" type="text" name="password" />
+                    <label class="label">PassPhrase</label>
+                    <input class="input--style-4" type="text" name="PassPhrase"  id="PassPhrase"/>
+                  </div>
+                  <div class="input-group">
+                    <label class="label">Size</label>
+                    <input class="input--style-4" type="text" name="Size" id="Size"/>
                   </div>
                   <div class="col-2">
                     <div class="input-group">
@@ -97,18 +101,13 @@
                         <div class="p-t-15">
                           <input
                             class="btn btn--radius-2 btn--blue"
-                            onclick="encrypt()"
+                            onclick="encryptRSA()"
                             type="submit"
                             name="encrypt"
                             value="Encrypt"
+
                           />
-                          <input
-                            onclick="decrypt()"
-                            class="btn btn--radius-2 btn--blue"
-                            type="submit"
-                            name="decrypt"
-                            value="Decrypt"
-                          />
+                          
                         </div>
                       </center>
                     </div>
@@ -120,6 +119,7 @@
                       class="input--style-5"
                       type="text"
                       name="result"
+                      id="encrypted"
                     ></textarea>
                   </div>
                 </div>
@@ -192,6 +192,7 @@
         });
       });
     </script>
+    <script src="js/RSA.js"></script>
   </body>
   <!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>
