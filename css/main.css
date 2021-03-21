@@ -248,7 +248,6 @@ h6 {
    ========================================================================== */
 .btn {
   display: inline-block;
-  width: 200px;
   line-height: 50px;
   padding: 0 50px;
   margin: 10px 20px 10px 20px;
@@ -382,8 +381,7 @@ input {
 
 .input--style-5 {
   width: 550px;
-  /* line-height: 50px; */
-  height: 150px;
+  line-height: 150px;
   background: #fafafa;
   -webkit-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
   -moz-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
@@ -391,21 +389,13 @@ input {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-  padding: 20px;
-  border: none;
-  color: #666;
-  font-family: inherit;
+  padding: 0 20px;
   font-size: 16px;
   color: #666;
   -webkit-transition: all 0.4s ease;
   -o-transition: all 0.4s ease;
   -moz-transition: all 0.4s ease;
   transition: all 0.4s ease;
-  resize: none;
-}
-
-.input--style-5:active {
-  border: none;
 }
 
 .input--style-4::-webkit-input-placeholder {
