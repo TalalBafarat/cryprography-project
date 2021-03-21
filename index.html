@@ -24,6 +24,10 @@
 
     <!-- Main CSS-->
     <link href="css/main.css" rel="stylesheet" media="all">
+
+    <!-- script type="text/javascript" src="Blowfish.js"></script -->
+  <script type="text/javascript" src="http://yandex.st/jquery/1.4.2/jquery.min.js"></script>
+  <script type="text/javascript" src="js/Blowfish/Blowfish.js"></script>
 </head>
 
 <body>
@@ -53,18 +57,18 @@
 
                                 <div class="input-group">
                                     <label class="label">Your secret message (for encrypt) OR encrypted message (for decrypt)</label>
-                                    <input class="input--style-5" type="text" name="first_name">
+                                    <input class="input--style-5" type="text" name="text">
                                 </div>
                                 <div class="input-group">
                                     <label class="label">Password</label>
-                                    <input class="input--style-4" type="text" name="first_name">
+                                    <input class="input--style-4" type="text" name="password">
                                 </div>
                                 <div class="col-2">
                                     <div class="input-group">
                                         <center>
                                             <div class="p-t-15">
-                                                <button class="btn btn--radius-2 btn--blue" type="submit">Encrypt</button>
-                                                <button class="btn btn--radius-2 btn--blue" type="submit">Decrypt</button>
+                                                <input class="btn btn--radius-2 btn--blue" type="submit" name="encrypt" value="Encrypt">
+                                                <input class="btn btn--radius-2 btn--blue" type="submit" name="decrypt" value="Decrypt">
                                             </div>
                                         </center>
                                     </div>
@@ -72,7 +76,7 @@
                                 
                                 <div class="input-group">
                                     <label class="label">Final Message</label>
-                                    <input class="input--style-5" type="text" name="first_name">
+                                    <input class="input--style-5" type="text" name="result">
                                 </div>
                             </div>
                         </div>
@@ -102,6 +106,57 @@
     <script src="js/global.js"></script>
     <script src="js/cryptico.js"></script>
     <script src="js/RSA.js"></script>
+
+
+    <script type="text/javascript">
+        $(function() {
+          $('input[name=encrypt]').submit(function(event) {
+            event.preventDefault();
+          });
+    
+          $('input[name=encrypt]').click(function(event) {
+            try {
+              var key = $('input[name=password]').val();
+              var text = $('input[name=text]').val();
+    
+              var bf = new Blowfish(key);
+    
+              var res = bf.encrypt(text);
+    
+    
+              res = bf.base64Encode(res);
+              $('input[name=result]').val(res);
+            } catch(ex) {
+              if (window.console && console.log) {
+                console.log(ex)
+              }
+            }
+    
+            return false;
+          });
+          $('input[name=decrypt]').click(function() {
+            try {
+              var key = $('input[name=password]').val();
+              var text = $('input[name=text]').val();
+    
+              var bf = new Blowfish(key);
+    
+              text = bf.base64Decode(text);
+    
+              var res = bf.decrypt(text);
+              res = bf.trimZeros(res);
+    
+              $('input[name=result]').val(res);
+            } catch(ex) {
+              if (window.console && console.log) {
+                console.log(ex)
+              }
+            }
+    
+            return false;
+          });
+        });
+      </script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 
 </html>
