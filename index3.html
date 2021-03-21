@@ -57,7 +57,7 @@
 
                                 <div class="input-group">
                                     <label class="label">Your secret message (for encrypt) OR encrypted message (for decrypt)</label>
-                                    <input class="input--style-5" type="text" name="text">
+                                    <textarea class="input--style-5" type="text" name="text"></textarea>
                                 </div>
                                 <div class="input-group">
                                     <label class="label">Password</label>
@@ -76,7 +76,7 @@
                                 
                                 <div class="input-group">
                                     <label class="label">Final Message</label>
-                                    <input class="input--style-5" type="text" name="result">
+                                    <textarea class="input--style-5" type="text" name="result"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -117,7 +117,7 @@
           $('input[name=encrypt]').click(function(event) {
             try {
               var key = $('input[name=password]').val();
-              var text = $('input[name=text]').val();
+              var text = $('textarea[name=text]').val();
     
               var bf = new Blowfish(key);
     
@@ -125,7 +125,7 @@
     
     
               res = bf.base64Encode(res);
-              $('input[name=result]').val(res);
+              $('textarea[name=result]').val(res);
             } catch(ex) {
               if (window.console && console.log) {
                 console.log(ex)
@@ -137,7 +137,7 @@
           $('input[name=decrypt]').click(function() {
             try {
               var key = $('input[name=password]').val();
-              var text = $('input[name=text]').val();
+              var text = $('textarea[name=text]').val();
     
               var bf = new Blowfish(key);
     
@@ -146,7 +146,7 @@
               var res = bf.decrypt(text);
               res = bf.trimZeros(res);
     
-              $('input[name=result]').val(res);
+              $('textarea[name=result]').val(res);
             } catch(ex) {
               if (window.console && console.log) {
                 console.log(ex)
