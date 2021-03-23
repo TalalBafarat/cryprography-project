@@ -1,4 +1,3 @@
-!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags-->
@@ -20,6 +19,19 @@
       rel="stylesheet"
       media="all"
     />
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+      crossorigin="anonymous"
+    ></script>
     <link
       href="vendor/font-awesome-4.7/css/font-awesome.min.css"
       rel="stylesheet"
@@ -43,13 +55,6 @@
     <link href="css/main.css" rel="stylesheet" media="all" />
 
     <!-- script type="text/javascript" src="Blowfish.js"></script -->
-    <script
-      type="text/javascript"
-      src="http://yandex.st/jquery/1.4.2/jquery.min.js"
-    ></script>
-    <script type="text/javascript" src="js/Blowfish/Blowfish.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script>
-    <script src="js/encrypt.js"></script>
   </head>
 
   <body>
@@ -85,30 +90,37 @@
                       class="input--style-5"
                       type="text"
                       name="text"
+                      id="text"
                     ></textarea>
                   </div>
                   <div class="input-group">
                     <label class="label">Password</label>
-                    <input class="input--style-4" type="text" name="password" />
+                    <textarea
+                      class="input--style-4"
+                      type="text"
+                      name="password"
+                      id="password"
+                    ></textarea>
                   </div>
                   <div class="col-2">
                     <div class="input-group">
                       <center>
-                        <div class="p-t-15">
-                          <input
-                            class="btn btn--radius-2 btn--blue"
-                            onclick="encrypt()"
-                            type="submit"
-                            name="encrypt"
-                            value="Encrypt"
-                          />
-                          <input
-                            onclick="decrypt()"
-                            class="btn btn--radius-2 btn--blue"
-                            type="submit"
-                            name="decrypt"
-                            value="Decrypt"
-                          />
+                        <div class="p-t-20">
+                          <button
+                            type="button"
+                            onclick="encryptRabbit()"
+                            class="btn btn-primary"
+                          >
+                            Encrypt
+                          </button>
+
+                          <button
+                            type="button"
+                            onclick="decryptRabbit()"
+                            class="btn btn-primary"
+                          >
+                            Decrypt
+                          </button>
                         </div>
                       </center>
                     </div>
@@ -119,7 +131,8 @@
                     <textarea
                       class="input--style-5"
                       type="text"
-                      name="result"
+                      name="t"
+                      id="t"
                     ></textarea>
                   </div>
                 </div>
@@ -133,65 +146,12 @@
     </div>
 
     <!-- Jquery JS-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <!-- Vendor JS-->
-    <script src="vendor/select2/select2.min.js"></script>
-    <script src="vendor/datepicker/moment.min.js"></script>
-    <script src="vendor/datepicker/daterangepicker.js"></script>
 
     <!-- Main JS-->
-    <script src="js/global.js"></script>
-    <script src="js/cryptico.js"></script>
-    <script src="js/RSA.js"></script>
 
-    <script type="text/javascript">
-      $(function () {
-        $("input[name=encrypt]").submit(function (event) {
-          event.preventDefault();
-        });
+    <script src="js/Rabbit.js"></script>
 
-        $("input[name=encrypt]").click(function (event) {
-          try {
-            var key = $("input[name=password]").val();
-            var text = $("textarea[name=text]").val();
-
-            var bf = new Blowfish(key);
-
-            var res = bf.encrypt(text);
-
-            res = bf.base64Encode(res);
-            $("textarea[name=result]").val(res);
-          } catch (ex) {
-            if (window.console && console.log) {
-              console.log(ex);
-            }
-          }
-
-          return false;
-        });
-        $("input[name=decrypt]").click(function () {
-          try {
-            var key = $("input[name=password]").val();
-            var text = $("textarea[name=text]").val();
-
-            var bf = new Blowfish(key);
-
-            text = bf.base64Decode(text);
-
-            var res = bf.decrypt(text);
-            res = bf.trimZeros(res);
-
-            $("textarea[name=result]").val(res);
-          } catch (ex) {
-            if (window.console && console.log) {
-              console.log(ex);
-            }
-          }
-
-          return false;
-        });
-      });
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script>
   </body>
   <!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>
