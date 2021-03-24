@@ -1,11 +1,11 @@
-var message2 = 'amit';  
-var key2= 'abc123XYZ';
-var en = CryptoJS.AES.encrypt(message2, key2); 
-console.log(en.toString());
+//var message2 = 'amit';  
+//var key2= 'abc123XYZ';
+//var en = CryptoJS.AES.encrypt(message2, key2); 
+//console.log(en.toString());
 //U2FsdGVkX1+VzEhW121O4uic0L0BfJiQlRdqE+tr67Q=
-var de = CryptoJS.AES.decrypt(en, key2);
-console.log(de.toString(CryptoJS.enc.Utf8));
-console.log("hi");
+//var de = CryptoJS.AES.decrypt(en, key2);
+//console.log(de.toString(CryptoJS.enc.Utf8));
+//console.log("hi");
 function encryptAES() {
     var key = document.getElementById("password").value;
     var message = document.getElementById("text").value;
