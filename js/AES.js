@@ -10,12 +10,13 @@ function encryptAES() {
     var key = document.getElementById("password").value;
     var message = document.getElementById("text").value;
     var encrypted = CryptoJS.AES.encrypt(message, key);
+    //var ciphertext = encrypted.ciphertext.toString(CryptoJS.enc.Base64);
     document.getElementById("t").innerHTML = encrypted.toString();
     console.log(encrypted.toString());
   }
   function decryptAES() {
-    var key = document.getElementById("password").value.toString();
-    var encrypted = document.getElementById("text").value;
+    var key = document.getElementById("password").value.toString()
+    var encrypted = document.getElementById("text").value.toString();
     var decrypted = CryptoJS.AES.decrypt(encrypted, key);
     document.getElementById("t").innerHTML = decrypted.toString(
       CryptoJS.enc.Utf8
