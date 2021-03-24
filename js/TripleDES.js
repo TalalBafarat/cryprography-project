@@ -1,13 +1,40 @@
-var text = "hello123"
-var key = "1234567891011"
-var options = {mode: CryptoJS.mode.ECB};
-key = CryptoJS.enc.Utf16LE.parse(key);
-key = CryptoJS.MD5(key)
-key.words.push(key.words[0], key.words[1])
-var textWordArray = CryptoJS.enc.Utf16LE.parse(text);
-var TripleDESEncrypt = CryptoJS.TripleDES.encrypt(textWordArray, key, options);
-var base64String = TripleDESEncrypt.toString()
-console.log('Encrypted message: ' + base64String);
-var TripleDESdecrypt = CryptoJS.TripleDES.decrypt( {
-ciphertext: CryptoJS.enc.Base64.parse(TripleDESEncrypt.toString())}, key, options);
-console.log('Decrypted message: ' + TripleDESdecrypt.toString(CryptoJS.enc.Utf16LE));
+//var text = "hello123"
+//var key = "1234567891011"
+//var options = {mode: CryptoJS.mode.ECB};
+//key = CryptoJS.enc.Utf16LE.parse(key);
+//key = CryptoJS.MD5(key)
+//key.words.push(key.words[0], key.words[1])
+//var textWordArray = CryptoJS.enc.Utf16LE.parse(text);
+//var TripleDESEncrypt = CryptoJS.TripleDES.encrypt(textWordArray, key, options);
+//var base64String = TripleDESEncrypt.toString()
+//console.log('Encrypted message: ' + base64String);
+//var TripleDESdecrypt = CryptoJS.TripleDES.decrypt( {
+//ciphertext: CryptoJS.enc.Base64.parse(TripleDESEncrypt.toString())}, key, options);
+//console.log('Decrypted message: ' + TripleDESdecrypt.toString(CryptoJS.enc.Utf16LE));
+
+function TripleDESEncrypt() {
+    var key = document.getElementById("key").value;
+    var message = document.getElementById("text").value;
+    var options = {mode: CryptoJS.mode.ECB};
+    key = CryptoJS.enc.Utf16LE.parse(key);
+    key = CryptoJS.MD5(key)
+    key.words.push(key.words[0], key.words[1])
+    var textWordArray = CryptoJS.enc.Utf16LE.parse(message);
+    var TripleDESEncrypt = CryptoJS.TripleDES.encrypt(textWordArray, key, options);
+    var base64String = TripleDESEncrypt.toString()
+    document.getElementById("t").innerHTML = base64String
+    console.log(base64String);
+  }
+  function TripleDESdecrypt() {
+    var key = document.getElementById("key").value.toString();
+    var message = document.getElementById("text").value;
+    key = CryptoJS.enc.Utf16LE.parse(key);
+    key = CryptoJS.MD5(key)
+    key.words.push(key.words[0], key.words[1])
+    var options = {mode: CryptoJS.mode.ECB,};
+    var TripleDESdecrypt = CryptoJS.TripleDES.decrypt( {
+ciphertext: CryptoJS.enc.Base64.parse(message)}, key, options);
+    document.getElementById("t").innerHTML = TripleDESdecrypt.toString(CryptoJS.enc.Utf16LE);
+    console.log(TripleDESdecrypt.toString(CryptoJS.enc.Utf16LE));
+    
+  }
