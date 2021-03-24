@@ -1,10 +1,10 @@
-//var message = 'koko';  
-//var key= 'abc123XzZ';
-//var encrypted = CryptoJS.AES.encrypt(message, key); 
-//console.log(encrypted.toString());
+//var message2 = 'koko';  
+//var key2= 'abc123';
+//var en = CryptoJS.AES.encrypt(message2, key2); 
+//console.log(en.toString());
 //U2FsdGVkX1+VzEhW121O4uic0L0BfJiQlRdqE+tr67Q=
-//var decrypted = CryptoJS.AES.decrypt(encrypted, key);
-//console.log(decrypted.toString(CryptoJS.enc.Utf8));
+//var de = CryptoJS.AES.decrypt(en, key2);
+//console.log(de.toString(CryptoJS.enc.Utf8));
 //console.log("hi");
 function encryptAES() {
     var key = document.getElementById("password").value;
