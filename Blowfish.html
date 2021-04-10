@@ -78,6 +78,9 @@
                                     <label class="label">Final Message</label>
                                     <textarea class="input--style-5" type="text" name="result"></textarea>
                                 </div>
+                                <div class="input-group">
+                                  <span id="time"></span>
+                              </div>
                             </div>
                         </div>
                         <div class="row row-space">
@@ -115,6 +118,8 @@
           });
     
           $('input[name=encrypt]').click(function(event) {
+            var d1 = new Date();
+            var n1 = d1.getTime();
             try {
               var key = $('input[name=password]').val();
               var text = $('textarea[name=text]').val();
@@ -131,10 +136,16 @@
                 console.log(ex)
               }
             }
-    
+            var d2 = new Date();
+            var n2 = d2.getTime();
+            var total = n2-n1
+            document.getElementById("time").innerHTML=total+" miliseconds for 448 bit key";
+            total = 0;
             return false;
           });
           $('input[name=decrypt]').click(function() {
+            var d1 = new Date();
+            var n1 = d1.getTime();
             try {
               var key = $('input[name=password]').val();
               var text = $('textarea[name=text]').val();
@@ -152,7 +163,11 @@
                 console.log(ex)
               }
             }
-    
+            var d2 = new Date();
+            var n2 = d2.getTime();
+            var total = n2-n1
+            document.getElementById("time").innerHTML=total+" miliseconds for 448 bit key";
+            total = 0;
             return false;
           });
         });
