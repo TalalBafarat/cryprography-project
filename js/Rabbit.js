@@ -6,11 +6,10 @@ function encryptRabbit() {
     document.getElementById("t").innerHTML = encrypted.toString();
     console.log(encrypted.toString());
   } else {
-    document.getElementById("encrypted").innerHTML =
+    document.getElementById("t").innerHTML =
       "there is no message or there is no PassPhrase ";
   }
 }
-
 
 function decryptRabbit() {
   var key = document.getElementById("password").value.toString();
