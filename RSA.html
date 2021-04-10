@@ -93,19 +93,22 @@
                     <label class="label">PassPhrase</label>
                     <input class="input--style-4" type="text" name="PassPhrase"  id="PassPhrase"/>
                   </div>
-                 
-                  <div class="col-1">
+                 <center>   <div class="col-6">
                     
-                    <div class="input-group">
+                  <div class="input-group">
+                    
+                    <center>
+                      <div class="">
+                       
+                        <button type="button" onclick="encryptRSA()" class="btn btn-primary ">Encrypt</button>
+                      </div>
                       
-                      <center>
-                        <div class="p-t-15 mr-4">
-                         
-                          <button type="button" onclick="encryptRSA()" class="btn btn-primary mr-4">Primary</button>
-                        </div>
-                      </center>
-                    </div>
+
+                    </center>
+                     
                   </div>
+                </div></center>
+               
 
                   <div class="input-group">
                     <label class="label i">Final Message</label>
@@ -116,6 +119,7 @@
                       id="encrypted"
                     ></textarea>
                   </div>
+                  <div id="time"></div>
                   
                 </div>
               </div>
