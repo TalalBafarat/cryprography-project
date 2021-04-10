@@ -16,14 +16,18 @@ function TripleDESEncrypt() {
     var key = document.getElementById("key").value;
     var message = document.getElementById("text").value;
     var options = {mode: CryptoJS.mode.ECB};
-    key = CryptoJS.enc.Utf16LE.parse(key);
-    key = CryptoJS.MD5(key)
-    key.words.push(key.words[0], key.words[1])
-    var textWordArray = CryptoJS.enc.Utf16LE.parse(message);
-    var TripleDESEncrypt = CryptoJS.TripleDES.encrypt(textWordArray, key, options);
-    var base64String = TripleDESEncrypt.toString()
-    document.getElementById("t").innerHTML = base64String
-    console.log(base64String);
+    if(message.length>0 && key.length>0){key = CryptoJS.enc.Utf16LE.parse(key);
+      key = CryptoJS.MD5(key)
+      key.words.push(key.words[0], key.words[1])
+      var textWordArray = CryptoJS.enc.Utf16LE.parse(message);
+      var TripleDESEncrypt = CryptoJS.TripleDES.encrypt(textWordArray, key, options);
+      var base64String = TripleDESEncrypt.toString()
+      document.getElementById("t").innerHTML = base64String
+      console.log(base64String);
+    }else{
+      document.getElementById("t").innerHTML="there is no message or there is no PassPhrase ";
+    }
+    
   }
   function TripleDESdecrypt() {
     var key = document.getElementById("key").value.toString();

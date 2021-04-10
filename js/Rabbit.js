@@ -1,10 +1,16 @@
 function encryptRabbit() {
-  var key = document.getElementById("password").value;
   var message = document.getElementById("text").value;
-  var encrypted = CryptoJS.Rabbit.encrypt(message, key);
-  document.getElementById("t").innerHTML = encrypted.toString();
-  console.log(encrypted.toString());
+  var PassPhrase = document.getElementById("password").value;
+  if (message.length > 0 && PassPhrase.length > 0) {
+    var encrypted = CryptoJS.Rabbit.encrypt(message, PassPhrase);
+    document.getElementById("t").innerHTML = encrypted.toString();
+    console.log(encrypted.toString());
+  } else {
+    document.getElementById("t").innerHTML =
+      "there is no message or there is no PassPhrase ";
+  }
 }
+
 function decryptRabbit() {
   var key = document.getElementById("password").value.toString();
   var encrypted = document.getElementById("text").value;
