@@ -4,16 +4,20 @@ function encryptRSA(){
     var PassPhrase = document.getElementById("PassPhrase").value;
     var Bits = 1024;
     var message = document.getElementById("mess").value;
-    console.log(message)    
+    console.log("this is my message "+message.length)
+    if(message.length>0 && PassPhrase.length>0){
+        var ReciverRSAkey = cryptico.generateRSAKey(PassPhrase, Bits);
+        console.log(ReciverRSAkey)
+        var ReciverPublicKeyString = cryptico.publicKeyString(ReciverRSAkey);   
+        var EncryptionResult = cryptico.encrypt(message, ReciverPublicKeyString);
+        var CipherText = EncryptionResult.cipher
+        document.getElementById("encrypted").innerHTML=CipherText;
+    
 
-    var ReciverRSAkey = cryptico.generateRSAKey(PassPhrase, Bits);
-    console.log(ReciverRSAkey)
-    var ReciverPublicKeyString = cryptico.publicKeyString(ReciverRSAkey);   
-    var EncryptionResult = cryptico.encrypt(message, ReciverPublicKeyString);
-    var CipherText = EncryptionResult.cipher
-    document.getElementById("encrypted").innerHTML=CipherText;
-    console.log(ReciverRSAkey.doPrivate)
-
+    }else{
+        document.getElementById("encrypted").innerHTML="there is no message or there is no PassPhrase ";
+    }
+    
 
 }
 
