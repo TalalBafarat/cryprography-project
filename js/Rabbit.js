@@ -1,8 +1,8 @@
 function encryptRabbit() {
+  var message = document.getElementById("text").value;
+  var PassPhrase = document.getElementById("password").value;
   if (message.length > 0 && PassPhrase.length > 0) {
-    var key = document.getElementById("password").value;
-    var message = document.getElementById("text").value;
-    var encrypted = CryptoJS.Rabbit.encrypt(message, key);
+    var encrypted = CryptoJS.Rabbit.encrypt(message, PassPhrase);
     document.getElementById("t").innerHTML = encrypted.toString();
     console.log(encrypted.toString());
   } else {
