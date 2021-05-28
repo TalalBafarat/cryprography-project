@@ -354,7 +354,7 @@ input {
 }
 
 .input--style-4 {
-  width: 550px;
+  width: 100%;
   line-height: 50px;
   background: #fafafa;
   -webkit-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
@@ -373,7 +373,7 @@ input {
 }
 
 .input--style-5 {
-  width: 550px;
+  width: 100%;
   /* line-height: 50px; */
   height: 150px;
   background: #fafafa;
@@ -428,7 +428,7 @@ input {
 }
 
 .label {
-  width: 400px;
+  width: 100%;
   font-size: 16px;
   color: #555;
   text-transform: capitalize;

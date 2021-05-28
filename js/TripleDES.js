@@ -29,7 +29,7 @@ function TripleDESEncrypt() {
       var base64String = TripleDESEncrypt.toString()
       document.getElementById("t").innerHTML = base64String
       console.log(base64String);
-      document.getElementById("time").innerHTML=total+" miliseconds for 192 bits key ";
+      document.getElementById("time").innerHTML=total+" miliseconds for 64 bits key ";
     }else{
       document.getElementById("t").innerHTML="there is no message or there is no PassPhrase ";
     }
